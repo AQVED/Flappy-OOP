@@ -1,6 +1,7 @@
 from pygame import event, key, display, Clock, QUIT
 from player import Player
 from tube import Tube
+from random import randint
 
 class Game:
     WIDTH = 800
@@ -23,7 +24,8 @@ class Game:
     def generate_tubes(self,count=10):
         x = self.WIDTH + 700
         for i in range(count):
-            top_tube = Tube(x,-200,100,400,'green')
+            y = randint(-300,-50)
+            top_tube = Tube(x,y,100,400,'green')
             bottom_tube = Tube(x, top_tube.y+400+200,100,700,'green')
             self.tubes.extend([top_tube, bottom_tube])
             x += 700
